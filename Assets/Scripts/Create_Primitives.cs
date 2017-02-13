@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class Create_Primitives : MonoBehaviour {
@@ -70,7 +71,14 @@ public class Create_Primitives : MonoBehaviour {
             foreach (GameObject sphere in thisSpheres) {
                 StartCoroutine(ignoreGravity(sphere));
             }
-            
         }
+
+        Touch myTouch = Input.GetTouch(0);
+
+        Touch[] myTouches = Input.touches;
+        if(Input.touchCount > 1) {
+            SceneManager.LoadScene(0);
+        }
+    
     }
 }
